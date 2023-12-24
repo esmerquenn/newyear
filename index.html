@@ -36,13 +36,12 @@
       }
       tr,
       td {
-        padding: 5px;
-        width: 25px;
+        width: 20px;
         height: 10px;
-        border: 1px solid #ddd;
         text-align: center;
         font: normal 1.1em monospace;
         text-transform: uppercase;
+        letter-spacing: 2px;
       }
       .red {
         background: red;
@@ -55,7 +54,6 @@
       @media only screen and (max-width: 600px) {
         tr,
         td {
-          padding: 2px;
           width: 10px;
           height: 5px;
           font-size: 0.9em;
@@ -74,45 +72,54 @@
     <script>
       const esmer = document.querySelector(".esmer");
       const input = document.querySelector("input");
-      let n = 37;
+      let n = 41;
       let yazi = "yeniil";
       let color = "";
       let setir = 1;
       function getValue() {
         let kod = "";
-        for (let i = 0; i < n - 15; i++) {
+        let heceBol = 0;
+        for (let i = 0; i < n - 17; i++) {
           kod += "<tr>";
           for (let j = 1; j <= n; j++) {
             let color =
-              Math.abs(j - Math.ceil(n / 2)) <= i - 1 ? "red" : "blue";
-            kod += `<td class="${color}">${input.value
-              .charAt(j % input.value.length)
-              .toUpperCase()}</td>`;
+              Math.abs(j - Math.ceil(n / 2)) <= i - 3 ? "red" : "blue";
+            let hece = input.value.substring(heceBol, heceBol + 2);
+            heceBol = (heceBol + 2) % input.value.length;
+            kod += `<td class="${color}">${hece}</td>`;
           }
           kod += "</tr>";
         }
-        // let menimifim = Math.abs(j - Math.ceil(n / 2));
-        // let color =
-        //   i <= Math.ceil(n / 2) && menimifim <= i - 1 ? "red" : "blue";
-        // if (j == Math.floor(n / 2) && i - 1) {
-        //   if (
-        //     (Math.abs(i - setir) == 1 && Math.abs(j - setir) == 1) ||
-        //     (Math.abs(i - setir) == 1 && Math.abs(j - setir) == 1)
-        //   ) {
-        //     color = "red";
-        //   }
-        // } else {
-        //   color = "blue";
-        // }
-
-        // let color = i == j ? "red" : "blue";
-        // let color = i + j >= n || i + j <= n ? "red" : "blue";
-        // yazi.charAt(j % yazi.length)
-        // j !== Math.floor(n / 2) + 1||
-        // i + j < n + 1 ||
         esmer.innerHTML = kod;
         input.value = "";
       }
+      // let char1 = input.value
+      //   .charAt((j - 1) % input.value.length)
+      //   .toUpperCase();
+      // let char2 = input.value
+      //   .charAt(j % input.value.length)
+      //   .toUpperCase();
+      // let char1 = input.value.charAt((j / 2) % input.value.length);
+      // let char2 = input.value.charAt(((j + 1) / 2) % input.value.length);
+      // let menimifim = Math.abs(j - Math.ceil(n / 2));
+      // let color =
+      //   i <= Math.ceil(n / 2) && menimifim <= i - 1 ? "red" : "blue";
+      // if (j == Math.floor(n / 2) && i - 1) {
+      //   if (
+      //     (Math.abs(i - setir) == 1 && Math.abs(j - setir) == 1) ||
+      //     (Math.abs(i - setir) == 1 && Math.abs(j - setir) == 1)
+      //   ) {
+      //     color = "red";
+      //   }
+      // } else {
+      //   color = "blue";
+      // }
+
+      // let color = i == j ? "red" : "blue";
+      // let color = i + j >= n || i + j <= n ? "red" : "blue";
+      // yazi.charAt(j % yazi.length)
+      // j !== Math.floor(n / 2) + 1||
+      // i + j < n + 1 ||
     </script>
   </body>
 </html>
