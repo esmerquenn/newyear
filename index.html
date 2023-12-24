@@ -84,9 +84,11 @@
           for (let j = 1; j <= n; j++) {
             let color =
               Math.abs(j - Math.ceil(n / 2)) <= i - 3 ? "red" : "blue";
-            let hece = input.value.substring(heceBol, heceBol + 2);
-            heceBol = (heceBol + 2) % input.value.length;
-            kod += `<td class="${color}">${hece}</td>`;
+            // let hece = input.value.substring(heceBol, heceBol + 2);
+            // heceBol = (heceBol + 2) % input.value.length;
+            kod += `<td class="${color}">${input.value.charAt(
+              j % input.value.length
+            )}</td>`;
           }
           kod += "</tr>";
         }
