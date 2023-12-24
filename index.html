@@ -15,6 +15,7 @@
         text-align: center;
         display: flex;
         justify-content: center;
+        align-items: center;
         flex-direction: column;
       }
       span {
@@ -36,8 +37,9 @@
       tr,
       td {
         padding: 5px;
-        width: 20px;
-        height: 9px;
+        width: 25px;
+        height: 10px;
+        border: 1px solid #ddd;
         text-align: center;
         font: normal 1.1em monospace;
         text-transform: uppercase;
@@ -72,13 +74,13 @@
     <script>
       const esmer = document.querySelector(".esmer");
       const input = document.querySelector("input");
-      let n = 45;
+      let n = 37;
       let yazi = "yeniil";
       let color = "";
       let setir = 1;
       function getValue() {
         let kod = "";
-        for (let i = 0; i < n - 21; i++) {
+        for (let i = 0; i < n - 15; i++) {
           kod += "<tr>";
           for (let j = 1; j <= n; j++) {
             let color =
