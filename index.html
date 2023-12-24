@@ -34,6 +34,7 @@
       table {
         border-collapse: collapse;
         width: 90vw;
+        background: #000032;
       }
       tr,
       td {
@@ -46,12 +47,12 @@
         letter-spacing: 2px;
       }
       .red {
-        background: red;
+        /* background: red; */
         color: #fff;
       }
       .blue {
-        background: blue;
-        color: darkblue;
+        /* background: blue; */
+        color: #212151;
       }
       @media only screen and (max-width: 600px) {
         tr,
@@ -86,11 +87,9 @@
           for (let j = 1; j <= n; j++) {
             let color =
               Math.abs(j - Math.ceil(n / 2)) <= i - 3 ? "red" : "blue";
-            // let hece = input.value.substring(heceBol, heceBol + 2);
-            // heceBol = (heceBol + 2) % input.value.length;
-            kod += `<td class="${color}">${input.value.charAt(
-              j % input.value.length
-            )}</td>`;
+            let hece = input.value.substring(heceBol, heceBol + 2);
+            heceBol = (heceBol + 2) % input.value.length;
+            kod += `<td class="${color}">${hece}</td>`;
           }
           kod += "</tr>";
         }
